@@ -1,0 +1,2 @@
+# szeregPrzedzialowy
+w trakcie tworzenia
