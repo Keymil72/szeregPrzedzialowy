@@ -13,6 +13,7 @@ namespace szeregPrzedzialowy
 
         private void FileLoad(object sender, EventArgs e)
         {
+            // otwarcie okna dialogowego wyboru pliku danych (.txt)
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Title = "Wybierz plik z danymi (.txt)";
             openFileDialog1.InitialDirectory = Path.Combine(defaultPath, defaultFileName);
@@ -20,8 +21,10 @@ namespace szeregPrzedzialowy
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.ShowDialog();
 
+            // jeœli wybrano plik
             if (openFileDialog1.FileName != "")
             {
+                // przypisanie œcie¿ki do zmiennej path
                 tBFilePath.Text = openFileDialog1.FileName;
                 path = openFileDialog1.FileName;
 
@@ -31,8 +34,10 @@ namespace szeregPrzedzialowy
                 frm.Show();
                 this.Hide();
             }
+            // jeœli nie wybrano pliku
             else
             {
+                // wyœwietlenie komunikatu o b³êdzie
                 MessageBox.Show("Nie wybrano pliku");
             }
         }
