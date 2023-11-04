@@ -4,10 +4,11 @@
     {
         List<float> szeregSzczegolowy = new List<float>();
         List<float> szeregSzczegolowyPosortowany = new List<float>();
-        int intervals;
+        int iloscPrzedzialow = 10;
         public Form3(List<float> szSzczegolowy, List<float> szSzczegolowyPosortowany, int intervals)
         {
             InitializeComponent();
+            this.FormClosing += Form3_FormClosing;
             szeregSzczegolowy = szSzczegolowy;
             szeregSzczegolowyPosortowany = szSzczegolowyPosortowany;
             // deklaracja list ni (ilość elementów w przedziale)
@@ -29,7 +30,7 @@
             int ilosc = szeregSzczegolowyPosortowany.Count;
 
             // deklaracja zmiennej ilośćPrzedziałów (ilość przedziałów w szeregu przedziałowym)
-            int iloscPrzedzialow = intervals;
+            iloscPrzedzialow = intervals;
 
             // deklaracja zmiennej max (maksymalna wartość w szeregu szczegółowym)
             float max = szeregSzczegolowyPosortowany.Max();
@@ -48,14 +49,14 @@
             // ustawienie przedziału dolnego xi[0] (dla ułatwienia operacji)
             xiMin.Add(minPrzedzialu);
 
-            xiMax.Add(maxPrzedzialuPierwszego);
+            xiMax.Add((float)Math.Round(maxPrzedzialuPierwszego, 2));
             // ustawienie przedziału górnego xi
             for (int i = 1; i < iloscPrzedzialow; i++)
-                xiMax.Add(xiMax[i - 1] + zakresLicz / iloscPrzedzialow);
+                xiMax.Add((float)Math.Round(xiMax[i - 1] + zakresLicz / iloscPrzedzialow, 2));
 
             // ustawienie przedziału dolnego xi
             for (int i = 0; i < iloscPrzedzialow - 1; i++)
-                xiMin.Add(xiMax[i]);
+                xiMin.Add((float)Math.Round(xiMax[i], 2));
 
 
             // ilość elementów w przedziale ni
@@ -75,7 +76,7 @@
 
             // iloczyn średniej przedziału i ilości elementów w przedziale xi*ni
             for (int i = 0; i < ni.Count; i++)
-                xiNi.Add((xiMin[i] + xiMax[i]) / 2 * ni[i]);
+                xiNi.Add((float)Math.Round((xiMin[i] + xiMax[i]) / 2 * ni[i], 2));
 
             // dodanie pierwszego elementu do listy nsk[0]
             nsk.Add(ni[0]);
@@ -136,13 +137,17 @@
             lBEndPointData.Items.Add("");
 
             // stworzenie tabeli danych
-            lBEndPointData.Items.Add($"    xi     |  ni  |  xi*ni  |  nsk");
-            lBEndPointData.Items.Add($"[{xiMin[0] + 0.1f} - {xiMax[0]}]  |  {ni[0]}  |  {xiNi[0]}  |  {nsk[0]}");
+            lBEndPointData.Items.Add("+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━+");
+            lBEndPointData.Items.Add($"|        xi       |   ni  |     xi*ni     |   nsk    |");
+            lBEndPointData.Items.Add("|━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━|");
+            lBEndPointData.Items.Add(String.Format("|{0,17}|{1,7}|{2,15}|{3,10}|", $"[{xiMin[0] + 0.1f} - {xiMax[0]}]", ni[0], xiNi[0], nsk[0]));
             for (int i = 1; i < xiMin.Count; i++)
             {
-                lBEndPointData.Items.Add($"[{xiMin[i]} - {xiMax[i]}]  |  {ni[i]}  |  {xiNi[i]}  |  {nsk[i]}");
+                lBEndPointData.Items.Add(String.Format("|{0,17}|{1,7}|{2,15}|{3,10}|", $"[{xiMin[i]} - {xiMax[i]}]", ni[i], xiNi[i], nsk[i]));
+
 
             }
+            lBEndPointData.Items.Add("+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━+");
 
             // reszta wyników
             lBEndPointData.Items.Add("");
@@ -154,6 +159,11 @@
             lBEndPointData.Items.Add("");
         }
 
+        // zamknięcie wszystkich okien
+        private void Form3_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void CloseApp(object sender, EventArgs e)
         {

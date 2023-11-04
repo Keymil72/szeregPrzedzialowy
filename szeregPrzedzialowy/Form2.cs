@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace szeregPrzedzialowy
+﻿namespace szeregPrzedzialowy
 {
     public partial class Form2 : Form
     {
@@ -45,7 +43,7 @@ namespace szeregPrzedzialowy
             lBData.Items.Add($"Ilość błędów: {errorCount}");
             for (int i = 0; i < szeregSzczegolowy.Count; i++)
             {
-                lBData.Items.Add(spaceBetween(szeregSzczegolowy[i], szeregSzczegolowyPosortowany[i]));
+                lBData.Items.Add(String.Format("{0,24}|{1,24}", szeregSzczegolowy[i], szeregSzczegolowyPosortowany[i]));
             }
         }
 
@@ -60,26 +58,5 @@ namespace szeregPrzedzialowy
         }
 
         // Funkcja do wyświetlania danych w kolumnach
-        string spaceBetween(float text1, float text2)
-        {
-            // 19 to połowa szerokości okna
-            int midPlace = 24;
-            // długość tekstów
-            int length1 = text1.ToString().Length;
-            int length2 = text2.ToString().Length;
-
-            // stworzenie stringbuilderów
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sb2 = new StringBuilder();
-            // zbudowanie stringów z odpowiednią ilością spacji (tekst1 od lewej strony) (tekst2 od prawej strony)
-            string toReturn = text1.ToString() + sb.Insert(0, " ", midPlace - length1) + "|" + sb2.Insert(0, " ", midPlace - length2) + text2.ToString();
-            // zwrócenie stringa
-            return toReturn;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

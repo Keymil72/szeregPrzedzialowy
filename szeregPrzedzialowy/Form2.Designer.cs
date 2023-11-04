@@ -41,10 +41,10 @@
             // 
             lBData.BackColor = Color.WhiteSmoke;
             lBData.FormattingEnabled = true;
-            lBData.ItemHeight = 18;
+            lBData.ItemHeight = 22;
             lBData.Location = new Point(12, 110);
             lBData.Name = "lBData";
-            lBData.Size = new Size(560, 436);
+            lBData.Size = new Size(560, 422);
             lBData.TabIndex = 0;
             // 
             // label1
@@ -52,7 +52,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 19);
             label1.Name = "label1";
-            label1.Size = new Size(233, 18);
+            label1.Size = new Size(285, 22);
             label1.TabIndex = 1;
             label1.Text = "Sprawdź poprawność danych";
             // 
@@ -62,7 +62,7 @@
             btnSubmitData.ForeColor = Color.FromArgb(24, 24, 24);
             btnSubmitData.Location = new Point(473, 14);
             btnSubmitData.Name = "btnSubmitData";
-            btnSubmitData.Size = new Size(99, 28);
+            btnSubmitData.Size = new Size(119, 32);
             btnSubmitData.TabIndex = 2;
             btnSubmitData.Text = "Zatwierdź";
             btnSubmitData.UseVisualStyleBackColor = true;
@@ -74,17 +74,16 @@
             label2.Font = new Font("Hack Nerd Font", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(88, 92);
             label2.Name = "label2";
-            label2.Size = new Size(383, 15);
+            label2.Size = new Size(479, 20);
             label2.TabIndex = 3;
             label2.Text = "Szereg szczegółowy nieposortowany | posortowany";
-            label2.Click += label2_Click;
             // 
             // nUDIntervalCount
             // 
-            nUDIntervalCount.Location = new Point(179, 51);
+            nUDIntervalCount.Location = new Point(256, 51);
             nUDIntervalCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nUDIntervalCount.Name = "nUDIntervalCount";
-            nUDIntervalCount.Size = new Size(80, 25);
+            nUDIntervalCount.Size = new Size(80, 29);
             nUDIntervalCount.TabIndex = 5;
             nUDIntervalCount.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
@@ -93,16 +92,16 @@
             label3.AutoSize = true;
             label3.Location = new Point(12, 53);
             label3.Name = "label3";
-            label3.Size = new Size(161, 18);
+            label3.Size = new Size(197, 22);
             label3.TabIndex = 6;
             label3.Text = "ilość przedziałów";
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(24, 24, 24);
-            ClientSize = new Size(584, 561);
+            ClientSize = new Size(582, 553);
             Controls.Add(label3);
             Controls.Add(nUDIntervalCount);
             Controls.Add(label2);
