@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnSelectFile = new Button();
             tBFilePath = new TextBox();
             SuspendLayout();
@@ -60,6 +61,8 @@
             // 
             // Form1
             // 
+            AcceptButton = btnSelectFile;
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(24, 24, 24);
@@ -68,8 +71,10 @@
             Controls.Add(btnSelectFile);
             Font = new Font("Hack Nerd Font", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.WhiteSmoke;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Wybierz plik danych (.txt)";
             ResumeLayout(false);
             PerformLayout();

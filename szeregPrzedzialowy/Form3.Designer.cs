@@ -28,56 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             lBEndPointData = new ListBox();
+            btnSaveToExcel = new Button();
+            label1 = new Label();
+            tBFilePath = new TextBox();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.AutoSize = true;
-            button1.BackColor = Color.WhiteSmoke;
-            button1.ForeColor = Color.FromArgb(24, 24, 24);
-            button1.Location = new Point(833, 24);
-            button1.Name = "button1";
-            button1.Size = new Size(81, 28);
-            button1.TabIndex = 0;
-            button1.Text = "Zamknij";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += CloseApp;
             // 
             // lBEndPointData
             // 
+            resources.ApplyResources(lBEndPointData, "lBEndPointData");
             lBEndPointData.BackColor = Color.WhiteSmoke;
             lBEndPointData.ForeColor = Color.FromArgb(24, 24, 24);
             lBEndPointData.FormattingEnabled = true;
-            lBEndPointData.ItemHeight = 18;
-            lBEndPointData.Location = new Point(12, 23);
             lBEndPointData.Name = "lBEndPointData";
-            lBEndPointData.Size = new Size(560, 526);
-            lBEndPointData.TabIndex = 1;
+            // 
+            // btnSaveToExcel
+            // 
+            resources.ApplyResources(btnSaveToExcel, "btnSaveToExcel");
+            btnSaveToExcel.BackColor = Color.WhiteSmoke;
+            btnSaveToExcel.ForeColor = Color.FromArgb(24, 24, 24);
+            btnSaveToExcel.Name = "btnSaveToExcel";
+            btnSaveToExcel.UseVisualStyleBackColor = false;
+            btnSaveToExcel.Click += FileLoad;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
+            // 
+            // tBFilePath
+            // 
+            resources.ApplyResources(tBFilePath, "tBFilePath");
+            tBFilePath.Name = "tBFilePath";
             // 
             // Form3
             // 
-            AutoScaleDimensions = new SizeF(9F, 18F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(24, 24, 24);
-            ClientSize = new Size(584, 561);
+            Controls.Add(tBFilePath);
+            Controls.Add(label1);
+            Controls.Add(btnSaveToExcel);
             Controls.Add(lBEndPointData);
-            Controls.Add(button1);
-            Font = new Font("Hack Nerd Font", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.WhiteSmoke;
-            Margin = new Padding(4);
-            MaximumSize = new Size(600, 600);
-            MinimumSize = new Size(600, 600);
             Name = "Form3";
-            Text = "Twoje wyniki";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button button1;
         private ListBox lBEndPointData;
+        private Button btnSaveToExcel;
+        private Label label1;
+        private TextBox tBFilePath;
     }
 }

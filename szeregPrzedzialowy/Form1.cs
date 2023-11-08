@@ -38,7 +38,7 @@ namespace szeregPrzedzialowy
             else
             {
                 // wyœwietlenie komunikatu o b³êdzie
-                MessageBox.Show("Nie wybrano pliku");
+                tBFilePath.Text = "Nie wybrano pliku";
             }
         }
     }
